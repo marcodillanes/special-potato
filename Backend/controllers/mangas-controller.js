@@ -33,17 +33,18 @@ const getById = async ( req, res, next ) => {
 
 };
 
-// this function will handle adding manga
+// this function will handle adding manga, info regarding the manga and the image
 
 const addManga = async ( req, res, next ) => {
-    const { name, author, price, description } = req.body;
+    const { name, author, price, description, image } = req.body;
     let manga;
     try {
         manga = new Manga({
             name,
             author,
             price,
-            description
+            description,
+            image
         });
         //await will save new manga to the databas
         await manga.save();
@@ -59,11 +60,11 @@ const addManga = async ( req, res, next ) => {
 
 };
 
-//this function will handle updates on manga
+//this function will handle updates on manga, also needs to updated to add image
 
 const updateManga = async ( req, res, next ) => {
     const id = req.params.id;
-    const { name, author, price, description } = req.body;
+    const { name, author, price, description, image } = req.body;
     let manga;
     try {
         manga = await Manga.findByIdAndUpdate(id, {
@@ -71,7 +72,8 @@ const updateManga = async ( req, res, next ) => {
             name,
             author,
             price,
-            description
+            description,
+            image
         });
         manga = await manga.save()
     }
