@@ -17,6 +17,6 @@ router.get('/:id', mangasController.getById);
 
 // update route is going to be a put route
 
-router.put('/:id', mangasController)
+router.put('/:id', mangasController.updateManga);
 
 module.exports = router;

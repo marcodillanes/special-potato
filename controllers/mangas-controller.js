@@ -2,7 +2,7 @@ const Manga = require('../models/Manga');
 
 // this funcion will get all mangas from db
 
-const getAllMangas = async (req, res, next) => {
+const getAllMangas = async ( req, res, next ) => {
     let mangas;
     try {
         mangas = await Manga.find();
@@ -35,7 +35,7 @@ const getById = async ( req, res, next ) => {
 
 // this function will handle adding manga
 
-const addManga = async (req, res, next) => {
+const addManga = async ( req, res, next ) => {
     const { name, author, price, description } = req.body;
     let manga;
     try {
@@ -57,11 +57,36 @@ const addManga = async (req, res, next) => {
     }
     return res.status(201).json({ manga });
 
-}
+};
 
 //this function will handle updates on manga
+
+const updateManga = async ( req, res, next ) => {
+    const id = req.params.id;
+    const { name, author, price, description } = req.body;
+    let manga;
+    try {
+        manga = await Manga.findByIdAndUpdate(id, {
+            // what should be updated
+            name,
+            author,
+            price,
+            description
+        });
+        manga = await manga.save()
+    }
+    catch (err) {
+        console.log(err);
+    }
+    if (!manga) {
+        return res.status(404).json({ message:"Updating with this Id not available!" });
+
+    }
+    return res.status(200).json({ manga });
+}
 
 // export each function after completing each function one by one AFTER checking to see if it updates on postman!!
 exports.getById = getById;
 exports.getAllMangas = getAllMangas;
 exports.addManga = addManga;
+exports.updateManga = updateManga;
