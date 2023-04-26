@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 const router = require('./routes/manga-routes');
 const app = express();
 
-// middlewares
+// middleware
+
+// this middleware handles converting the json throughout the server 
+app.use(express.json());
 
 // localhost:5000/manga 
 
