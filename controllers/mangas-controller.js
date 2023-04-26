@@ -1,5 +1,6 @@
 const Manga = require('../models/Manga');
 
+// this funcion will get all mangas from db
 
 const getAllMangas = async (req, res, next) => {
     let mangas;
@@ -15,6 +16,8 @@ const getAllMangas = async (req, res, next) => {
     return res.status(200).json({ mangas });
 };
 
+// this function will handle retrieving manga by their Ids created from postman
+
 const getById = async ( req, res, next ) => {
     const id = req.params.id
     let manga;
@@ -29,6 +32,8 @@ const getById = async ( req, res, next ) => {
     return res.status(200).json({ manga });
 
 };
+
+// this function will handle adding manga
 
 const addManga = async (req, res, next) => {
     const { name, author, price, description } = req.body;
@@ -54,7 +59,9 @@ const addManga = async (req, res, next) => {
 
 }
 
+//this function will handle updates on manga
 
+// export each function after completing each function one by one AFTER checking to see if it updates on postman!!
 exports.getById = getById;
 exports.getAllMangas = getAllMangas;
 exports.addManga = addManga;
