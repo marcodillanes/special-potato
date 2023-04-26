@@ -19,4 +19,10 @@ router.get('/:id', mangasController.getById);
 
 router.put('/:id', mangasController.updateManga);
 
+// delete route aka finally getting near to the end!!! wooo!
+
+router.delete('/:id', mangasController.deleteManga);
+
+// one thing i have noticed with checking on postman is that i keep forgetting to close my node app.js to let it fully update and rerunning it again?
+
 module.exports = router;

@@ -83,6 +83,22 @@ const updateManga = async ( req, res, next ) => {
 
     }
     return res.status(200).json({ manga });
+};
+
+// function for deleting
+
+const deleteManga = async ( req, res, next ) => {
+    const id = req.params.id;
+    let manga;
+    try {
+        manga = await Manga.findByIdAndRemove(id);
+    } catch (err) {
+        console.log(err);
+    }
+    if (!manga) {
+        return res.status(404).json({ message:"Delete by Id failed!" });
+    }
+    return res.status(200).json({ message:"Product deleted!" });
 }
 
 // export each function after completing each function one by one AFTER checking to see if it updates on postman!!
@@ -90,3 +106,4 @@ exports.getById = getById;
 exports.getAllMangas = getAllMangas;
 exports.addManga = addManga;
 exports.updateManga = updateManga;
+exports.deleteManga = deleteManga;
