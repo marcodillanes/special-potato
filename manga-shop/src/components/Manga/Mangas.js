@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './Manga.css'
 import axios from 'axios';
 import Manga from './Manga';
 // Make http requests from node.js, supports the promise API, and Intercept/transform request and response
@@ -19,7 +20,7 @@ const Mangas = () => {
     <div>
         <ul>
             {mangas && mangas.map((manga, i) =>(
-                <div key={i}>
+                <div className="manga" key={i}>
                     <Manga manga={manga}/>
                 </div>
             ))}
