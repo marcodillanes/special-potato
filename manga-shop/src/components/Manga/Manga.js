@@ -9,8 +9,8 @@ const Manga = (props) => {
     <article> By {author} </article>
     <h3>{name}</h3>
     <p>{description}</p>
-    <h2>$ {price}</h2>
-    <Button>Update</Button>
+    <h2>${price}</h2>
+    <Button>Edit</Button>
     <Button>Delete</Button>
 
     </div>
