@@ -20,9 +20,9 @@ const Mangas = () => {
     <div>
         <ul>
             {mangas && mangas.map((manga, i) =>(
-                <div className="manga" key={i}>
+                <li className="manga" key={i}>
                     <Manga manga={manga}/>
-                </div>
+                </li>
             ))}
         </ul>
         </div>
