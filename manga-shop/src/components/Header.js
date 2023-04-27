@@ -21,7 +21,7 @@ const Header = () => {
                     sx={{ml:""}} //sx allows for inline css for the tabs 
                     textColor='inherit' value={value} onChange={(e, val) => setValue(val)}>
                         <Tab LinkComponent={NavLink} to="/Add" label = 'Add Manga!'/>
-                        <Tab LinkComponent={NavLink} to="/Manga" label = 'Manga!'/>
+                        <Tab LinkComponent={NavLink} to="/Mangas" label = 'Mangas!'/>
                         <Tab LinkComponent={NavLink} to="/About" label = 'ABOUT US'/>
                 
             </Tabs>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+// Make http requests from node.js, supports the promise API, and Intercept/transform request and response
 const URL = "http://localhost:5000/mangas";
 
 
