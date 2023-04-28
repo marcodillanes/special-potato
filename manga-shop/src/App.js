@@ -21,7 +21,7 @@ function App() {
       <Route path="/add" element={<AddManga />} exact />
       <Route path="/mangas" element={<Mangas />} exact /> 
       <Route path="/about" element={<About />} exact />
-      <Route path='/mangas/:id' element={<mangaDetail />} exact/>
+      <Route path='/mangas/:id' element={<MangaDetail />} exact/>
     </Routes>
    </main>
     </React.Fragment>

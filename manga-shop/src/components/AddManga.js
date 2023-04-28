@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
-import { Button, TextField, Typography }  from '@mui/material';
+import { Button, TextField, FormLabel }  from '@mui/material';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
@@ -8,6 +9,7 @@ import axios from "axios";
 // set inputs for adding manga along with values for the database
 
 const AddManga = () => {
+  const history = useNavigate();
   const [inputs, setInputs] = useState({
     name:'',
     author:'',
@@ -22,7 +24,7 @@ const AddManga = () => {
   const handleChange = (e) => {
     setInputs((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }))
   };
 
@@ -48,6 +50,7 @@ const AddManga = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    sendRequest().then(() => history("/books"));
 
   };
 
@@ -66,11 +69,52 @@ const AddManga = () => {
       autoComplete="off"
     >
   
-      <TextField  id="filled-basic" label="Name" variant="filled" />
-      <TextField value={inputs.author} onChange={handleChange} id="filled-basic" label="Author" variant="filled" />
-      <TextField value={inputs.description} onChange={handleChange} id="filled-basic" label="Description" variant="filled" />
-      <TextField value={inputs.price} onChange={handleChange} id="filled-basic" label="Price" variant="filled" />
-      <TextField value={inputs.image} onChange={handleChange} id="filled-basic" label="Image" variant="filled" />
+  <FormLabel>Name</FormLabel>
+        <TextField
+          value={inputs.name}
+          onChange={handleChange}
+          margin="normal"
+          fullWidth
+          variant="filled"
+          name="name"
+        />
+        <FormLabel>Author</FormLabel>
+        <TextField
+          value={inputs.author}
+          onChange={handleChange}
+          margin="normal"
+          fullWidth
+          variant="filled"
+          name="author"
+        />
+        <FormLabel>Description</FormLabel>
+        <TextField
+          value={inputs.description}
+          onChange={handleChange}
+          margin="normal"
+          fullWidth
+          variant="filled"
+          name="description"
+        />
+        <FormLabel>Price</FormLabel>
+        <TextField
+          value={inputs.price}
+          onChange={handleChange}
+          type="number"
+          margin="normal"
+          fullWidth
+          variant="filled"
+          name="price"
+        />
+        <FormLabel>Image</FormLabel>
+        <TextField
+          value={inputs.image}
+          onChange={handleChange}
+          margin="normal"
+          fullWidth
+          variant="filled"
+          name="image"
+        />
       <Button type='submit'>Add more manga!</Button>
     </Box>
 
