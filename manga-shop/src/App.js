@@ -6,6 +6,7 @@ import Skywalker from './components/Skywalker';
 import AddManga from './components/AddManga';
 import Mangas from './components/Manga/Mangas';
 import About from './components/Manga/About';
+import MangaDetail from './components/Manga/MangaDetail';
 
 function App() {
   return (<React.Fragment>
@@ -20,6 +21,7 @@ function App() {
       <Route path="/add" element={<AddManga />} exact />
       <Route path="/mangas" element={<Mangas />} exact /> 
       <Route path="/about" element={<About />} exact />
+      <Route path='/mangas/:id' element={<mangaDetail />} exact/>
     </Routes>
    </main>
     </React.Fragment>

@@ -7,11 +7,12 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import {NavLink} from 'react-router-dom';
 
 // utilizing toolbar to get a better feel of organizing components
+
 const Header = () => {
     const [value, setValue] = useState();
   return  (<div>
 
-    <AppBar sx={{ backgroundColor:"#22223b" }} position='sticky'>
+    <AppBar sx={{ backgroundColor:"#191923" }} position='sticky'>
         
         <Toolbar>
             <Typography>
